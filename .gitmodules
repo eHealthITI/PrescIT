@@ -1,3 +1,9 @@
 [submodule "OpenPVSignal"]
 	path = OpenPVSignal
 	url = https://github.com/inab-certh/OpenPVSignal
+[submodule "SmPCsForPrescIT"]
+	path = SmPCsForPrescIT
+	url = https://github.com/inab-certh/SmPCsForPrescIT
+[submodule "semmehdbEH"]
+	path = semmehdbEH
+	url = https://github.com/achillec/semmehdbEH
