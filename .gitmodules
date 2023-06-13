@@ -1,0 +1,3 @@
+[submodule "OpenPVSignal"]
+	path = OpenPVSignal
+	url = https://github.com/inab-certh/OpenPVSignal
