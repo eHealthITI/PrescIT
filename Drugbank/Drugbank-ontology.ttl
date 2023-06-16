@@ -1,0 +1,558 @@
+@prefix : <http://www.semanticweb.org/drugbank-ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix drugbank: <http://www.semanticweb.org/drugbank-ontology#> .
+@base <http://www.semanticweb.org/drugbank-ontology> .
+
+<http://www.semanticweb.org/drugbank-ontology> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/drugbank-ontology#adverseReaction
+drugbank:adverseReaction rdf:type owl:ObjectProperty ;
+                         rdfs:domain drugbank:Drug ;
+                         rdfs:range drugbank:AdverseReaction .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#category
+drugbank:category rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  rdfs:domain drugbank:Drug ;
+                  rdfs:range drugbank:Category .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#ddinteraction
+drugbank:ddinteraction rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf owl:topObjectProperty ;
+                       rdfs:domain drugbank:Drug ;
+                       rdfs:range drugbank:DDInteraction .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#group
+drugbank:group rdf:type owl:ObjectProperty ;
+               rdfs:domain drugbank:Drug ;
+               rdfs:range drugbank:Group .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#hasArticle
+drugbank:hasArticle rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf drugbank:hasReference ;
+                    rdfs:range drugbank:Article .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#hasAttachment
+drugbank:hasAttachment rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf drugbank:hasReference ;
+                       rdfs:range drugbank:Attachment .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#hasLink
+drugbank:hasLink rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf drugbank:hasReference ;
+                 rdfs:range drugbank:Link .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#hasReference
+drugbank:hasReference rdf:type owl:ObjectProperty ;
+                      rdfs:domain drugbank:Drug ;
+                      rdfs:range drugbank:GeneralReference .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#hasTextbook
+drugbank:hasTextbook rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf drugbank:hasReference ;
+                     rdfs:range drugbank:Textbook .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#product
+drugbank:product rdf:type owl:ObjectProperty ;
+                 rdfs:domain drugbank:Drug ;
+                 rdfs:range drugbank:Product .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#synonym
+drugbank:synonym rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf owl:topObjectProperty ;
+                 rdf:type owl:InverseFunctionalProperty ;
+                 rdfs:domain drugbank:Drug ;
+                 rdfs:range drugbank:Synonym .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/drugbank-ontology#adverseReactionDescription
+drugbank:adverseReactionDescription rdf:type owl:DatatypeProperty ;
+                                    rdfs:subPropertyOf drugbank:adverseReactionProperty .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#adverseReactionName
+drugbank:adverseReactionName rdf:type owl:DatatypeProperty ;
+                             rdfs:subPropertyOf drugbank:adverseReactionProperty .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#adverseReactionProperty
+drugbank:adverseReactionProperty rdf:type owl:DatatypeProperty ;
+                                 rdfs:subPropertyOf drugbank:pharmacologyProperty ;
+                                 rdfs:domain drugbank:AdverseReaction .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#approved
+drugbank:approved rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf drugbank:productProperty ;
+                  rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#atc-code
+drugbank:atc-code rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf drugbank:categoryProperty ;
+                  rdfs:domain drugbank:Drug ;
+                  rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#avg_weight
+drugbank:avg_weight rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf drugbank:identificationProperty .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#casNumber
+drugbank:casNumber rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf drugbank:chemicalID .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#categoryName
+drugbank:categoryName rdf:type owl:DatatypeProperty ;
+                      rdfs:subPropertyOf drugbank:categoryProperty ;
+                      rdfs:domain drugbank:Category ;
+                      rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#categoryProperty
+drugbank:categoryProperty rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#chemicalID
+drugbank:chemicalID rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf owl:topDataProperty ;
+                    rdfs:domain drugbank:Drug ;
+                    rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#citation
+drugbank:citation rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf drugbank:referenceProperty ;
+                  rdfs:domain drugbank:Article ,
+                              drugbank:Textbook .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#country
+drugbank:country rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf drugbank:productProperty .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#ddiDescription
+drugbank:ddiDescription rdf:type owl:DatatypeProperty ;
+                        rdfs:subPropertyOf drugbank:ddiProperty ;
+                        rdfs:domain drugbank:DDInteraction ;
+                        rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#ddiDrugbankID
+drugbank:ddiDrugbankID rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf drugbank:ddiProperty ;
+                       rdfs:domain drugbank:DDInteraction ;
+                       rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#ddiName
+drugbank:ddiName rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf drugbank:ddiProperty ;
+                 rdfs:domain drugbank:DDInteraction ;
+                 rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#ddiProperty
+drugbank:ddiProperty rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf drugbank:interactionProperty .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#description
+drugbank:description rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf drugbank:identificationProperty ;
+                     rdfs:domain drugbank:Drug ;
+                     rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#dosageForm
+drugbank:dosageForm rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf drugbank:productProperty .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#drugName
+drugbank:drugName rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf drugbank:identificationProperty ;
+                  rdfs:domain drugbank:Drug ;
+                  rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#drugbankID
+drugbank:drugbankID rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf drugbank:identificationProperty ;
+                    rdfs:domain drugbank:Drug ;
+                    rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#endedOn
+drugbank:endedOn rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf drugbank:productProperty .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#externalID
+drugbank:externalID rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf owl:topDataProperty ;
+                    rdfs:domain drugbank:Drug .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#fda-application-number
+drugbank:fda-application-number rdf:type owl:DatatypeProperty ;
+                                rdfs:subPropertyOf drugbank:productProperty .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#foodInteraction
+drugbank:foodInteraction rdf:type owl:DatatypeProperty ;
+                         rdfs:subPropertyOf drugbank:interactionProperty ;
+                         rdfs:domain drugbank:Drug ;
+                         rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#gene_symbol
+drugbank:gene_symbol rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf drugbank:adverseReactionProperty .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#halfLife
+drugbank:halfLife rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf drugbank:pharmacologyProperty ;
+                  rdfs:domain drugbank:Drug .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#identificationProperty
+drugbank:identificationProperty rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#indication
+drugbank:indication rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf drugbank:pharmacologyProperty ;
+                    rdfs:domain drugbank:Drug ;
+                    rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#interactionProperty
+drugbank:interactionProperty rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#internationalBrandName
+drugbank:internationalBrandName rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#isbn
+drugbank:isbn rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf drugbank:referenceProperty ;
+              rdfs:domain drugbank:Textbook .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#kegg
+drugbank:kegg rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf drugbank:externalID .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#labeller
+drugbank:labeller rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf drugbank:productProperty .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#mechanismOfAction
+drugbank:mechanismOfAction rdf:type owl:DatatypeProperty ;
+                           rdfs:subPropertyOf drugbank:pharmacologyProperty ;
+                           rdfs:domain drugbank:Drug ;
+                           rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#meshID
+drugbank:meshID rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf drugbank:categoryProperty ;
+                rdfs:domain drugbank:Category ;
+                rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#pharmacodynamics
+drugbank:pharmacodynamics rdf:type owl:DatatypeProperty ;
+                          rdfs:subPropertyOf drugbank:pharmacologyProperty ;
+                          rdfs:domain drugbank:Drug ;
+                          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#pharmacologyProperty
+drugbank:pharmacologyProperty rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#productName
+drugbank:productName rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf drugbank:productProperty .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#productProperty
+drugbank:productProperty rdf:type owl:DatatypeProperty ;
+                         rdfs:domain drugbank:Product ;
+                         rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#protein_name
+drugbank:protein_name rdf:type owl:DatatypeProperty ;
+                      rdfs:subPropertyOf drugbank:adverseReactionProperty .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#pubChemSubstance
+drugbank:pubChemSubstance rdf:type owl:DatatypeProperty ;
+                          rdfs:subPropertyOf drugbank:externalID .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#pubmed_id
+drugbank:pubmed_id rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf drugbank:adverseReactionProperty .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#ref_id
+drugbank:ref_id rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf drugbank:referenceProperty ;
+                rdfs:domain drugbank:Article ,
+                            drugbank:Attachment ,
+                            drugbank:Link ,
+                            drugbank:Textbook .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#ref_pubmed_id
+drugbank:ref_pubmed_id rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf drugbank:referenceProperty ;
+                       rdfs:domain drugbank:Article .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#ref_title
+drugbank:ref_title rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf drugbank:referenceProperty ;
+                   rdfs:domain drugbank:Attachment ,
+                               drugbank:Link .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#ref_url
+drugbank:ref_url rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf drugbank:referenceProperty ;
+                 rdfs:domain drugbank:Attachment ,
+                             drugbank:Link .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#referenceProperty
+drugbank:referenceProperty rdf:type owl:DatatypeProperty ;
+                           rdfs:domain drugbank:GeneralReference ;
+                           rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#route
+drugbank:route rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf drugbank:productProperty .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#rs_id
+drugbank:rs_id rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf drugbank:adverseReactionProperty .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#source
+drugbank:source rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf drugbank:productProperty .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#startedOn
+drugbank:startedOn rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf drugbank:productProperty .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#state
+drugbank:state rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf drugbank:identificationProperty ;
+               rdfs:domain drugbank:Drug ;
+               rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#strength
+drugbank:strength rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf drugbank:productProperty .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#synonymLanguage
+drugbank:synonymLanguage rdf:type owl:DatatypeProperty ;
+                         rdfs:subPropertyOf drugbank:synonymProperty ;
+                         rdfs:domain drugbank:Synonym ;
+                         rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#synonymName
+drugbank:synonymName rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf drugbank:synonymProperty ;
+                     rdfs:domain drugbank:Synonym ;
+                     rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#synonymProperty
+drugbank:synonymProperty rdf:type owl:DatatypeProperty ;
+                         rdfs:subPropertyOf drugbank:identificationProperty .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#toxicity
+drugbank:toxicity rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf drugbank:pharmacologyProperty ;
+                  rdfs:domain drugbank:Drug ;
+                  rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#type
+drugbank:type rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf drugbank:identificationProperty .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#unii
+drugbank:unii rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf drugbank:chemicalID .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#uniport_id
+drugbank:uniport_id rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf drugbank:adverseReactionProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/drugbank-ontology#AdverseReaction
+drugbank:AdverseReaction rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#Article
+drugbank:Article rdf:type owl:Class ;
+                 rdfs:subClassOf drugbank:GeneralReference .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#Attachment
+drugbank:Attachment rdf:type owl:Class ;
+                    rdfs:subClassOf drugbank:GeneralReference .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#Category
+drugbank:Category rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#DDInteraction
+drugbank:DDInteraction rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#Drug
+drugbank:Drug rdf:type owl:Class ;
+              rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                owl:onProperty drugbank:drugbankID ;
+                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:string
+                              ] .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#GeneralReference
+drugbank:GeneralReference rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#Group
+drugbank:Group rdf:type owl:Class ;
+               owl:equivalentClass [ rdf:type owl:Class ;
+                                     owl:oneOf ( drugbank:Approved
+                                                 drugbank:Experimental
+                                                 drugbank:Illicit
+                                                 drugbank:Investigational
+                                                 drugbank:Nutraceutical
+                                                 drugbank:Vet_approved
+                                                 drugbank:Withdrawn
+                                               )
+                                   ] .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#Link
+drugbank:Link rdf:type owl:Class ;
+              rdfs:subClassOf drugbank:GeneralReference .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#Product
+drugbank:Product rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#Synonym
+drugbank:Synonym rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#Textbook
+drugbank:Textbook rdf:type owl:Class ;
+                  rdfs:subClassOf drugbank:GeneralReference .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/drugbank-ontology#Approved
+drugbank:Approved rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#Experimental
+drugbank:Experimental rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#Illicit
+drugbank:Illicit rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#Investigational
+drugbank:Investigational rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#Nutraceutical
+drugbank:Nutraceutical rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#Vet_approved
+drugbank:Vet_approved rdf:type owl:NamedIndividual .
+
+
+###  http://www.semanticweb.org/drugbank-ontology#Withdrawn
+drugbank:Withdrawn rdf:type owl:NamedIndividual .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( drugbank:Approved
+                        drugbank:Experimental
+                        drugbank:Illicit
+                        drugbank:Investigational
+                        drugbank:Nutraceutical
+                        drugbank:Vet_approved
+                        drugbank:Withdrawn
+                      )
+] .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
