@@ -9,7 +9,7 @@ In this repository you may find:
 1. A zip file including all downloaded data from Drugbank website.
 2. The Drugbank Ontology that we created to model Drugbank in Turtle format.
 3. A zip file including the Drugbank Knowledge Graph that contains the ontology and the Drugbank dataset in RDF format.
-4. The Java app that we developed in order to covert the Drugbank dataset to RDF format. 
+4. The Java app that we developed in order to covert the Drugbank dataset to RDF triples. 
 
 ## Initial Data
 The DrugBank dataset is originally available in an xml file which is accompanied by an XSD file that defines the XML Schema followed by the data. In addition, a csv file with all drug entitites ids is included.   

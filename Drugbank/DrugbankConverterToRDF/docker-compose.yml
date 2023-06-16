@@ -1,0 +1,9 @@
+version: "3.3"
+services:
+  rest-api:
+    build: ./
+    restart: on-failure
+    env_file: ./.env
+    network_mode: "host"
+    ports:
+      - "1302:1302"
