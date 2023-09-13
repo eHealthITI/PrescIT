@@ -7,3 +7,6 @@
 [submodule "semmehdbEH"]
 	path = semmehdbEH
 	url = https://github.com/achillec/semmehdbEH
+[submodule "prescit"]
+	path = prescit
+	url = https://github.com/ergobyte/prescit.git
